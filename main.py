@@ -7,6 +7,7 @@ except ModuleNotFoundError:
     import discord
 import time
 
+import keep_online
 from discord.ext import tasks
 
 client = discord.Client()
@@ -35,6 +36,7 @@ async def on_ready():
     time.sleep(0.3)
     sell.add_exception_type(TypeError)
     sell.start()
+    keep_online.start()
 
 
 @tasks.loop(seconds=36.5)
